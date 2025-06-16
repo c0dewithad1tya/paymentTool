@@ -15,7 +15,7 @@ public class SimpleProducer {
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
         for (int i = 1; i <= 5; i++) {
-            ProducerRecord<String, String> record = new ProducerRecord<>(topicName, "msg-key-" + i, "Aditya #" + i);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topicName, "msg-key-" + i, "Message #" + i);
             producer.send(record, (metadata, exception) -> {
                 if (exception == null) {
                     System.out.printf("Sent to %s partition %d with offset %d%n",
